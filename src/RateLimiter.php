@@ -1,15 +1,21 @@
 <?php
+namespace AIWAF;
+
+use AIWAF\RateLimit\DriverInterface;
+
 class RateLimiter
 {
-    private static $cache = [];
+    private static DriverInterface $driver;
+    private const WINDOW = 60;
+
+    public static function init(DriverInterface $driver): void
+    {
+        self::$driver = $driver;
+    }
 
     public static function check(string $ip): bool
     {
-        $minute = date('Y-m-d H:i');
-        if (!isset(self::$cache[$ip][$minute])) {
-            self::$cache[$ip][$minute] = 0;
-        }
-        self::$cache[$ip][$minute]++;
-        return self::$cache[$ip][$minute] > Config::$rateLimitPerMinute;
+        $count = self::$driver->increment($ip, self::WINDOW);
+        return $count > Config::$rateLimitPerMinute;
     }
 }
