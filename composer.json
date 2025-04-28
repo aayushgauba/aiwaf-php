@@ -1,0 +1,21 @@
+{
+    "name":        "yourname/aiwaf",
+    "description": "Adaptive Intelligent Web Application Firewall for PHP",
+    "type":        "library",
+    "license":     "MIT",
+    "authors": [
+      { "name": "Aayush Gauba", "email": "you@example.com" }
+    ],
+    "require": {
+      "php": ">=7.4"
+    },
+    "autoload": {
+      "psr-4": {
+        "AIWAF\\": "src/"
+      }
+    },
+    "require-dev": {
+      "phpunit/phpunit": "^9.6"
+    }
+  }
+  

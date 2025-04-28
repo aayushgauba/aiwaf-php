@@ -1,0 +1,30 @@
+# ───────────────────────────────────────────
+# Core Composer / PHP
+/vendor/
+/composer.lock
+
+# PHPUnit & coverage
+.phpunit.result.cache
+coverage/
+
+# IDEs & editors
+.idea/
+.vscode/
+*.sublime-*
+*.sw?
+*~  # Vim/Nano swap files
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Logs / runtime
+resources/*.json      # remove if you *want* model + blocked_ips in Git
+*.log
+
+# Build / phar / packaging
+/build/
+*.phar
+
+# PHPUnit temporary model files (from tests)
+resources/test_*.json
